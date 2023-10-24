@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1 Log in
+  if errors
+    ul
+      each error in errors
+        li= error.msg
+  form(method='post')
+    div
+      label(for='email') Email:
+      input(type='email', name='email', required=true)
+    div
+      label(for='password') Password:
+      input(type='password', name='password', required=true)
+    button(type='submit') Log in

@@ -1,0 +1,25 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    title Register
+  body
+    h1 Register
+    if errors
+      ul
+        each error in errors
+          li= error.msg
+    form(method='POST', action='/register')
+      label(for='username') Username:
+      input(type='text', name='username', required)
+      br
+      label(for='email') Email:
+      input(type='email', name='email', required)
+      br
+      label(for='password') Password:
+      input(type='password', name='password', required)
+      br
+      label(for='confirmPassword') Confirm Password:
+      input(type='password', name='confirmPassword', required)
+      br
+      input(type='submit', value='Register')

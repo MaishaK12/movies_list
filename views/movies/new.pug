@@ -1,0 +1,29 @@
+extends ../layout
+
+block content
+  h1 Add New Movie
+
+  // Form to add a new movie
+  form(action='/movies', method='POST')
+    label(for='name') Name:
+    input(type='text', name='name', id='name', required=true)
+
+    label(for='description') Description:
+    textarea(name='description', id='description', required=true)
+
+    label(for='year') Year:
+    input(type='number', name='year', id='year', min=1900, max=2050, required=true)
+
+    label(for='genres') Genres:
+    input(type='text', name='genres', id='genres', required=true)
+
+    label(for='rating') Rating:
+    input(type='number', name='rating', id='rating', min=0, max=10, step=0.1, required=true)
+
+    input(type='submit', value='Add Movie')
+
+    if (errors)
+        ul
+        each error, index in errors
+            li= error
+
